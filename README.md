@@ -2,6 +2,7 @@
 Repositorio oferece o wiki guia do modelo deployer GCP run para execução remota continua
 
 #### Cabeçalho da env definida - altere no codigo e na env em settings
+
 ```
 environment: twes
 ```
@@ -10,17 +11,21 @@ environment: twes
 
 =====================================================
 ENVs secrets
+
 GCP_PROJECT_ID = nome id do projeto
+
 GCP_CREDENTIALS = chave de autentivação IAM
 =====================================================
 
 #### Faça as seguintes SETs direto ao codigo
+
 NAME_PROJECT = nome do projeto setado pelo dev
 =====================================================
 
 =====================================================
 
 #### Não altere
+
 IMAGE_NAME = nomeSET padrão não altere
 =====================================================
 
