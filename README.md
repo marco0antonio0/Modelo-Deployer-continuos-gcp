@@ -39,6 +39,8 @@ Configurações set da maquina cloud
 --region us-central1 --memory 128Mi --min-instances 0 --max-instances 1 --platform managed --port 80 --allow-unauthenticated
 ```
 
+
+CODIGO COMPLETO
 ```
 name: GCP
 
