@@ -10,6 +10,7 @@ environment: twes
 #### Faça as seguintes SETs em secrets ENV github
 
 =====================================================
+
 ENVs secrets
 
 GCP_PROJECT_ID = nome id do projeto
