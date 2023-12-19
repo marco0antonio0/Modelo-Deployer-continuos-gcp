@@ -7,16 +7,19 @@ environment: twes
 ```
 
 #### Faça as seguintes SETs em secrets ENV github
+
 =====================================================
 ENVs secrets
 GCP_PROJECT_ID = nome id do projeto
 GCP_CREDENTIALS = chave de autentivação IAM
 =====================================================
+
 #### Faça as seguintes SETs direto ao codigo
 NAME_PROJECT = nome do projeto setado pelo dev
 =====================================================
 
 =====================================================
+
 #### Não altere
 IMAGE_NAME = nomeSET padrão não altere
 =====================================================
