@@ -1,13 +1,13 @@
 # Modelo-Deployer-continuos-gcp
 Repositorio oferece o wiki guia do modelo deployer GCP run para execução remota continua
 
-#### Cabeçalho da env definida - altere no codigo e na env em settings
+Cabeçalho da env definida - altere no codigo e na env em settings
 
 ```
 environment: twes
 ```
 
-#### Faça as seguintes SETs em secrets ENV github
+Faça as seguintes SETs em secrets ENV github
 
 =====================================================
 
@@ -16,21 +16,24 @@ ENVs secrets
 GCP_PROJECT_ID = nome id do projeto
 
 GCP_CREDENTIALS = chave de autentivação IAM
+
 =====================================================
 
-#### Faça as seguintes SETs direto ao codigo
+Faça as seguintes SETs direto ao codigo
 
 NAME_PROJECT = nome do projeto setado pelo dev
 =====================================================
 
 =====================================================
 
-#### Não altere
+Não altere
 
 IMAGE_NAME = nomeSET padrão não altere
+
 =====================================================
 
-#### Configurações set da maquina cloud
+Configurações set da maquina cloud
+
 ```
 --region us-central1 --memory 128Mi --min-instances 0 --max-instances 1 --platform managed --port 80 --allow-unauthenticated
 ```
