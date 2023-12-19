@@ -22,6 +22,7 @@ GCP_CREDENTIALS = chave de autentivação IAM
 Faça as seguintes SETs direto ao codigo
 
 NAME_PROJECT = nome do projeto setado pelo dev
+
 =====================================================
 
 =====================================================
