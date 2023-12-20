@@ -52,6 +52,11 @@ Defina as seguintes variáveis diretamente no código:
 # LOCATIONS: "us-central1" <<< defina a região da maquina e arquivos  >>>
 # MIN_INSTANCE: 0 <<< defina a quantidade de instancias minimas>>>
 # MAX_INSTANCE: 1 <<< defina a quantidade de instancias maximas>>>
+#
+# Opções de MEMORY_RAM
+# 128Mi
+# 256Mi
+# 512Mi
 # MEMORY_RAM: '128Mi' <<<< defina a quantidade de memoria ram da VM>>>>
 #
 #
@@ -128,6 +133,10 @@ Código Completo:
 # LOCATIONS: "us-central1" <<< defina a região da maquina e arquivos  >>>
 # MIN_INSTANCE: 0 <<< defina a quantidade de instancias minimas>>>
 # MAX_INSTANCE: 1 <<< defina a quantidade de instancias maximas>>>
+# Opções de MEMORY_RAM
+# 128Mi
+# 256Mi
+# 512Mi
 # MEMORY_RAM: '128Mi' <<<< defina a quantidade de memoria ram da VM>>>>
 #
 #
