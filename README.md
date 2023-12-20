@@ -9,34 +9,38 @@ Este repositório fornece um guia prático para configurar e executar um modelo 
 No cabeçalho do seu código, altere o nome do ambiente para refletir o ambiente desejado:
 
 ```yaml
-environment: nome-do-cabeçalho-secret-envs
+environment: nome-do-main-secret-envs
 ```
 
 ### Configuração no GitHub
+
 Configure as seguintes variáveis de ambiente secretas no GitHub nas configurações do seu repositório:
 
 - GCP_PROJECT_ID: ID do projeto GCP.
 - GCP_CREDENTIALS: Chave de autenticação IAM.
 
-### Configuração Direta no Código
+### Configuração Direta no Código GITHUB ACTIONS
 
-Além disso, defina as seguintes variáveis diretamente no código:
+Defina as seguintes variáveis diretamente no código:
 
 - NAME_PROJECT: Nome do projeto configurado pelo desenvolvedor.
 
-Caso faça uso de config adicional do Deploy no Artifact Registry 
+Caso faça uso do Artifact Registry faça a definição das ENVs
 
 - DOC_REPOSITORY: 'nome-do-repositorio/'
 - LOCATIONS: 'localização do server'
 
-Não altere:
+**Não altere:**
 
 - IMAGE_NAME: Nome padrão, não altere.
-  
+
 ### Configurações da Máquina no Google Cloud
+
 ```yaml
+# Nome da Action
 name: GCP
 
+# Acionamento da ação
 on:
   push:
     branches: [main]
@@ -45,9 +49,14 @@ jobs:
   deploy:
     name: Setup Gcloud Account
     runs-on: ubuntu-latest
+
+    # defina a secret ENVs
     environment: twes
+    # defina as ENVs
     env:
+      # defina
       NAME_PROJECT: testessss
+      # não altere
       IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/
     steps:
       - name: Checkout
@@ -88,10 +97,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: nextProjectEnvs
     env:
-      NAME_PROJECT: 'nome-do-projeto'
-      DOC_REPOSITORY: 'nome-do-repositorio/'
-      LOCATIONS: 'us-central1'
-      IMAGE_NAME: '-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/'
+      NAME_PROJECT: "nome-do-projeto"
+      DOC_REPOSITORY: "nome-do-repositorio/"
+      LOCATIONS: "us-central1"
+      IMAGE_NAME: "-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
