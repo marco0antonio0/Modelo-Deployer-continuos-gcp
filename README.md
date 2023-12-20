@@ -9,7 +9,7 @@ Este repositório fornece um guia prático para configurar e executar um modelo 
 No cabeçalho do seu código, altere o nome do ambiente para refletir o ambiente desejado:
 
 ```yaml
-environment: twes
+environment: nome-do-cabeçalho-secret-envs
 ```
 
 ### Configuração no GitHub
