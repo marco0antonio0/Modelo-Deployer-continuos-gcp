@@ -36,6 +36,8 @@ Defina as seguintes variáveis diretamente no código:
 
 ### Configurações da Máquina no Google Cloud
 
+### Deploy no Container Registry
+
 ```yaml
 # Variaveis secretas a serem definidas
 #
@@ -108,7 +110,7 @@ jobs:
         run: gcloud run deploy $NAME_PROJECT --image $DOC_REPOSITORY$IMAGE_NAME$NAME_PROJECT --region $LOCATIONS --memory $MEMORY_RAM  --min-instances $MIN_INSTANCE --max-instances $MAX_INSTANCE --platform managed --port 80 --allow-unauthenticated
 ```
 
-### Deploy no Registro de Artefatos
+### Deploy no Artifact Registry
 
 Código Completo:
 
