@@ -24,6 +24,11 @@ Além disso, defina as seguintes variáveis diretamente no código:
 
 - NAME_PROJECT: Nome do projeto configurado pelo desenvolvedor.
 
+Caso faça uso de config adicional do Deploy no Artifact Registry 
+
+- DOC_REPOSITORY: 'nome-do-repositorio/'
+- LOCATIONS: 'localização do server'
+
 Não altere:
 
 - IMAGE_NAME: Nome padrão, não altere.
