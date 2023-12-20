@@ -40,6 +40,8 @@ Configurações set da maquina cloud
 ```
 
 
+#### Deployer in Artifacty Container (descontinuado)
+
 CODIGO COMPLETO
 ```
 name: GCP
@@ -82,4 +84,49 @@ jobs:
       # deploy image
       - name: Deploy Docker image
         run: gcloud run deploy $NAME_PROJECT --image $IMAGE_NAME$NAME_PROJECT --region us-central1 --memory 128Mi --min-instances 0 --max-instances 1 --platform managed --port 80 --allow-unauthenticated
-``` 
+```
+
+#### Deployer in Artifacty Registry
+```
+name: GCP
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Setup Gcloud Account
+    runs-on: ubuntu-latest
+    environment: nextProjectEnvs
+    env:
+      # set vars
+      NAME_PROJECT: 'nome-do-projeto'
+      DOC_REPOSITIORY: 'nome-do-repositorio/'
+      LOCATIONS: 'us-central1'
+      
+      # não toque
+      IMAGE_NAME: '-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Login to GCP
+        uses: google-github-actions/setup-gcloud@v0.2.0
+        with:
+          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+      - name: Configure Docker
+        run: gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+
+      - name: Build Docker image
+        run: docker build -t $LOCATIONS$IMAGE_NAME$DOC_REPOSITIORY$NAME_PROJECT .
+
+      - name: Tag and Push Docker image to Artifact Registry
+        run: docker push $LOCATIONS$IMAGE_NAME$DOC_REPOSITIORY$NAME_PROJECT
+
+      - name: Deploy Docker image to Cloud Run
+        run: gcloud run deploy $NAME_PROJECT --image $LOCATIONS$IMAGE_NAME$DOC_REPOSITIORY$NAME_PROJECT --region $LOCATIONS --memory 128Mi --min-instances 0 --max-instances 1 --platform managed --port 80 --allow-unauthenticated
+
+```  
